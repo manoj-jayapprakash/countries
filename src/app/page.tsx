@@ -14,9 +14,8 @@ const getCountries = async () => {
 
 export default async function Home() {
   const countries = await getCountries();
-  console.log(countries);
   return (
-    <main className='flex min-h-screen flex-col items-center justify-between p-24'>
+    <main className='flex min-h-screen flex-col items-center justify-between pt-24 px-4'>
       <CountryList countries={countries} />
     </main>
   );
