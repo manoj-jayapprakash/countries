@@ -14,7 +14,7 @@ export const Search = ({
     if (e.target.value === "") return;
 
     const searchedCountries = countries.filter((country) =>
-      country.name.official.includes(e.target.value)
+      country.name.common.includes(e.target.value)
     );
     console.log(searchedCountries);
     setCountries(searchedCountries);

@@ -1,5 +1,6 @@
 export type Countries = {
   name: Name;
+  borders?: string[];
   tld: string[];
   cca2: string;
   ccn3: string;
@@ -9,7 +10,7 @@ export type Countries = {
   unMember: boolean;
   currencies: Currencies;
   idd: Idd;
-  capital: string[];
+  capital: string | string[];
   altSpellings: string[];
   region: string;
   subregion: string;

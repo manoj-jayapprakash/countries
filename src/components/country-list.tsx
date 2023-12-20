@@ -7,11 +7,13 @@ import Image from "next/image";
 import { Search } from "./filters/search";
 import { RegionFilter } from "./filters/region";
 import Link from "next/link";
+import { Metadata } from "./ui/metadata";
+import { getCapital } from "@/lib/utils";
 
 export const CountryList = ({ countries }: { countries: Countries[] }) => {
   const [filteredCountries, setFilteredCountries] = useState(countries);
   return (
-    <section className='mt-6 grid gap-12 max-w-7xl w-full'>
+    <section className='mt-6 grid gap-12 w-full'>
       <div className='grid gap-4 lg:flex lg:justify-between lg:items-center'>
         <Search countries={countries} setCountries={setFilteredCountries} />
         <RegionFilter
@@ -19,11 +21,11 @@ export const CountryList = ({ countries }: { countries: Countries[] }) => {
           setCountries={setFilteredCountries}
         />
       </div>
-      <ul className='flex flex-col justify-between gap-8 md:flex-row md:flex-wrap'>
+      <ul className='flex flex-col justify-between gap-8 md:flex-row md:flex-wrap mx-auto'>
         {filteredCountries.map((country) => (
-          <li key={country.area}>
-            <Link href={`/${country.area}`}>
-              <Card className='w-72 h-[21rem] overflow-hidden'>
+          <li key={country.area} className='block w-72 h-[21rem]'>
+            <Link href={`/${country.cca3}`}>
+              <Card className=' overflow-hidden'>
                 <div className='w-72 h-40'>
                   <Image
                     src={country.flags.svg}
@@ -37,18 +39,12 @@ export const CountryList = ({ countries }: { countries: Countries[] }) => {
                   <CardTitle>{country.name.common}</CardTitle>
                 </CardHeader>
                 <CardContent className='grid gap-2'>
-                  <div className='flex items-center gap-2 text-sm'>
-                    <p className='font-semibold'>Population:</p>
-                    <p className=''>{country.population}</p>
-                  </div>
-                  <div className='flex items-center gap-2 text-sm'>
-                    <p className='font-semibold'>Region:</p>
-                    <p className=''>{country.region}</p>
-                  </div>
-                  <div className='flex items-center gap-2 text-sm'>
-                    <p className='font-semibold'>Capital:</p>
-                    <p className=''>{country.capital}</p>
-                  </div>
+                  <Metadata label='Population' value={country.population} />
+                  <Metadata label='Region' value={country.region} />
+                  <Metadata
+                    label='Capital'
+                    value={getCapital(country.capital)}
+                  />
                 </CardContent>
               </Card>
             </Link>
