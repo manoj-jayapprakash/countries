@@ -25,20 +25,20 @@ export default async function CountryDetail({
   if (response.length === 0) return <p>No country found</p>;
 
   const countryInfo = response[0];
-  console.log(countryInfo);
 
   return (
     <div className='pt-24 px-8 max-w-7xl mx-auto'>
       <GoBack className='mt-4 md:mt-8' />
-      <section className='flex flex-col lg:flex-row gap-8 lg:justify-between my-8'>
+      <section className='flex flex-col lg:flex-row gap-8 lg:justify-between lg:items-center my-8 overflow-hidden'>
         <Image
           src={countryInfo.flags.svg}
           alt='Country Flag'
           width={300}
-          height={480}
-          className='w-full lg:max-w-[35rem] rounded-lg '
+          height={300}
+          loading='lazy'
+          className='w-full h-full lg:max-w-[35rem] rounded-lg object-cover'
         />
-        <div className='grid gap-4 my-4 lg:my-12'>
+        <div className='grid gap-4 my-4 lg:my-12 lg:w-[35rem]'>
           <h2 className='text-[1.375rem] md:text-[2rem]'>
             {countryInfo.name.common}
           </h2>

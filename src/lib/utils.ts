@@ -32,3 +32,7 @@ export const getBorderNames = (countries: Countries[], border: string[]) => {
 
   return names;
 };
+
+export const formatPopulation = (population: number) => {
+  return population.toLocaleString();
+};

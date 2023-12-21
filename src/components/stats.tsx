@@ -1,4 +1,4 @@
-import { getOfficialName, getCapital } from "@/lib/utils";
+import { getOfficialName, getCapital, formatPopulation } from "@/lib/utils";
 import { Countries } from "@/types";
 import React from "react";
 import { Metadata } from "@/components/ui/metadata";
@@ -13,7 +13,7 @@ export const Stats = ({ country }: { country: Countries }) => {
     {
       id: 2,
       label: "Population",
-      value: country.population,
+      value: formatPopulation(country.population),
     },
     {
       id: 3,

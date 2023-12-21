@@ -21,7 +21,7 @@ export const RegionFilter = ({
     const searchedCountries = countries.filter(
       (country) => country.region === value
     );
-    console.log(searchedCountries);
+
     setCountries(searchedCountries);
   };
 
