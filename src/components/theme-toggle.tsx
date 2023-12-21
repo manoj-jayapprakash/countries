@@ -26,15 +26,15 @@ export function ModeToggle() {
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
     >
       {theme === "dark" ? (
-        <span className='flex gap-1 items-center'>
+        <p className='flex gap-1 items-center'>
           <Sun width={16} />
-          <p className='font-semibold'>Light Mode</p>
-        </span>
+          <span className='font-semibold'>Light Mode</span>
+        </p>
       ) : (
-        <span className='flex gap-1 items-center'>
+        <p className='flex gap-1 items-center'>
           <Moon width={16} />
-          <p className='font-semibold'>Dark Mode</p>
-        </span>
+          <span className='font-semibold'>Dark Mode</span>
+        </p>
       )}
     </Button>
   );

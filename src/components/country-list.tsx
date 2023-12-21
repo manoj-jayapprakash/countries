@@ -34,7 +34,6 @@ export const CountryList = ({ countries }: { countries: Countries[] }) => {
                     width={288}
                     height={160}
                     className='h-full object-cover'
-                    loading='lazy'
                   />
                 </div>
                 <CardHeader>
