@@ -23,12 +23,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={`${nunito.variable} font-sans`}>
-        <ThemeProvider
-          attribute='class'
-          defaultTheme='system'
-          enableSystem
-          disableTransitionOnChange
-        >
+        <ThemeProvider attribute='class' disableTransitionOnChange>
           <Navbar />
           <div>{children}</div>
         </ThemeProvider>

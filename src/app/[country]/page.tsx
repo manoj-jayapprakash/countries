@@ -6,13 +6,15 @@ import { Countries } from "@/types";
 import Image from "next/image";
 
 const getCountryById = async (id: string): Promise<Countries[]> => {
-  const res = await fetch(GET_COUNTRY_API_URL(id));
-
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
+  try {
+    const res = await fetch(GET_COUNTRY_API_URL(id));
+    if (!res.ok) {
+      throw new Error(res.statusText);
+    }
+    return res.json();
+  } catch (error) {
+    throw new Error((error as Error).message);
   }
-
-  return res.json();
 };
 
 export default async function CountryDetail({
@@ -35,7 +37,6 @@ export default async function CountryDetail({
           alt='Country Flag'
           width={300}
           height={300}
-          loading='lazy'
           className='w-full h-full lg:max-w-[35rem] rounded-lg object-cover'
         />
         <div className='grid gap-4 my-4 lg:my-12 lg:w-[35rem]'>

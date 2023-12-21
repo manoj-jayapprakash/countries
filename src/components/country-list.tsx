@@ -14,7 +14,7 @@ export const CountryList = ({ countries }: { countries: Countries[] }) => {
   const [filteredCountries, setFilteredCountries] = useState(countries);
 
   return (
-    <section className='grid gap-12 w-full'>
+    <section className='grid gap-12 w-full  lg:max-w-[80rem]'>
       <div className='grid gap-12 lg:flex lg:justify-between lg:items-center lg:mt-6'>
         <Search countries={countries} setCountries={setFilteredCountries} />
         <RegionFilter
