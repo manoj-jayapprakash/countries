@@ -15,7 +15,7 @@ export const CountryList = ({ countries }: { countries: Countries[] }) => {
 
   return (
     <section className='grid gap-12 w-full'>
-      <div className='grid gap-12 lg:flex lg:justify-between lg:items-center'>
+      <div className='grid gap-12 lg:flex lg:justify-between lg:items-center lg:mt-6'>
         <Search countries={countries} setCountries={setFilteredCountries} />
         <RegionFilter
           countries={countries}
